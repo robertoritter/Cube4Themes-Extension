@@ -1,4 +1,6 @@
-# Cube4Themes Extension (modelo para teste local)
+![Cube4Themes: 53 color themes for any website](store/images/promo-marquee-1400x560.png)
+
+# Cube4Themes Extension
 
 Extensão para Chrome, Brave, Edge e Firefox que aplica os temas do [Cube4Themes](https://github.com/robertoritter/Cube4Themes) em qualquer site. A escolha pode valer só para o site atual ou para todos.
 
