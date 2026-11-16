@@ -16,6 +16,15 @@ Many websites still have no dark mode, and the ones that do rarely match your ta
 - **Instant:** changes apply without reloading the page.
 - **English and Portuguese**, following your browser language.
 
+## Screenshots
+
+| | |
+|---|---|
+| ![Theme picker open on a website](store/images/screenshot-1-popup-1280x800.png) | ![53 themes, dark and light](store/images/screenshot-3-themes-1280x800.png) |
+| Pick a theme for this site only or for all sites, right from the toolbar. | 53 themes, dark and light, adapted from popular terminal color schemes. |
+| ![A light theme applied to a website](store/images/screenshot-4-light-theme-1280x800.png) | ![A dark theme applied to a website](store/images/screenshot-5-dark-theme-1280x800.png) |
+| Light themes too: Solarized Light. | A dark theme on a site without dark mode: Catppuccin Mocha. |
+
 ## Install
 
 - **Chrome, Brave, Edge, Opera, Vivaldi:** [Cube4Themes on the Chrome Web Store](https://chromewebstore.google.com/search/Cube4Themes), then **Add to Chrome**.

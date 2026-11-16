@@ -16,6 +16,15 @@ Muitos sites ainda não têm modo escuro, e os que têm raramente combinam com o
 - **Na hora:** a mudança aparece sem recarregar a página.
 - **Inglês e português**, seguindo o idioma do navegador.
 
+## Imagens
+
+| | |
+|---|---|
+| ![Seletor de temas aberto num site](store/images/screenshot-1-popup-1280x800.png) | ![53 temas, escuros e claros](store/images/screenshot-3-themes-1280x800.png) |
+| Escolha um tema só para este site ou para todos, direto da barra de ferramentas. | 53 temas, escuros e claros, adaptados de esquemas de cores de terminal conhecidos. |
+| ![Um tema claro aplicado num site](store/images/screenshot-4-light-theme-1280x800.png) | ![Um tema escuro aplicado num site](store/images/screenshot-5-dark-theme-1280x800.png) |
+| Temas claros também: Solarized Light. | Um tema escuro num site sem modo escuro: Catppuccin Mocha. |
+
 ## Instalar
 
 - **Chrome, Brave, Edge, Opera, Vivaldi:** [Cube4Themes na Chrome Web Store](https://chromewebstore.google.com/search/Cube4Themes), depois **Usar no Chrome**.
