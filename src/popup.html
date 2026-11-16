@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Cube4Themes</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- Textos com data-i18n vêm de _locales/<idioma>/messages.json (popup.js preenche). -->
+  <div class="top">
+  <header>
+    <!-- Bloco de marca (docs/standards/BRAND.md): símbolo à esquerda, nome em cima, assinatura embaixo. -->
+    <div class="brand">
+      <img class="symbol" src="brand/cube4code-44.png" srcset="brand/cube4code-44.png 1x, brand/cube4code-88.png 2x" width="30" height="33" alt="">
+      <div>
+        <div class="brand-name">Cube<span class="four">4</span>Themes</div>
+        <a class="sig" href="https://cube4code.com" target="_blank" rel="noopener noreferrer">by Cube<span>4</span>Code.com</a>
+      </div>
+    </div>
+    <div id="host" class="host">...</div>
+  </header>
+
+  <div class="scope" role="radiogroup" data-i18n-aria="scopeLabel">
+    <label><input type="radio" name="scope" value="site" checked> <span data-i18n="scopeSite"></span></label>
+    <label><input type="radio" name="scope" value="global"> <span data-i18n="scopeAll"></span></label>
+  </div>
+
+  <div class="actions">
+    <button id="none" type="button" data-i18n="noTheme"></button>
+    <button id="inherit" type="button" data-i18n="useDefault" data-i18n-title="useDefaultTitle"></button>
+  </div>
+
+  <div id="status" class="status"></div>
+  </div>
+
+  <h2 data-i18n="dark"></h2>
+  <ul id="dark" class="list"></ul>
+  <h2 data-i18n="light"></h2>
+  <ul id="light" class="list"></ul>
+
+  <footer>
+    <span data-i18n="footer"></span>
+    <a href="https://github.com/robertoritter/Cube4Themes#credits" target="_blank" rel="noopener" data-i18n="credits"></a> ·
+    <a href="THIRD_PARTY_NOTICES.txt" target="_blank" data-i18n="licenses"></a>
+  </footer>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

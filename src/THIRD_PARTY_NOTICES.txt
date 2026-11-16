@@ -1,0 +1,39 @@
+Cube4Themes Extension - Third-party notices / Avisos de terceiros
+=================================================================
+
+EN: This extension is released under the MIT License (see LICENSE).
+It includes the following third-party material. Full license texts are in the licenses/ folder.
+
+PT: Esta extensão é distribuída sob a licença MIT (veja LICENSE).
+Ela inclui o material de terceiros abaixo. Os textos completos das licenças estão na pasta licenses/.
+
+1. Cube4Themes (lib/)
+   https://github.com/robertoritter/Cube4Themes
+   MIT License, Copyright (c) 2026 Roberto Ritter - licenses/Cube4Themes.txt
+
+2. Color palettes / Paletas de cores
+   Each color scheme belongs to its original author. The palettes were taken from these
+   collections, which credit every author:
+   Cada esquema de cores pertence ao seu autor original. As paletas vieram destas coleções,
+   que creditam cada autor:
+
+   - iTerm2-Color-Schemes, https://github.com/mbadolato/iTerm2-Color-Schemes
+     MIT License, Copyright (c) 2011 to Present Mark Badolato - licenses/iTerm2-Color-Schemes.txt
+   - Gogh, https://github.com/Gogh-Co/Gogh
+     MIT License (dual MIT / Apache-2.0, used under MIT), Copyright (c) 2024 Gogh - licenses/Gogh-MIT.txt
+   - lucario, https://github.com/raphamorim/lucario
+     MIT License, Copyright (c) 2014-present Raphael Amorim - licenses/lucario.txt
+   - vim-deus, https://github.com/ajmwagar/vim-deus
+     MIT License, Copyright (c) 2017 Avery Wagar - licenses/vim-deus.txt
+
+   Theme list / Lista de temas: https://terminalcolors.com/
+
+3. Manrope font / Fonte Manrope (brand/manrope-latin.woff2, Latin subset)
+   https://github.com/googlefonts/manrope
+   SIL Open Font License 1.1, Copyright 2018 The Manrope Project Authors - licenses/Manrope-OFL.txt
+
+4. Cube4Code brand / Marca Cube4Code (brand/cube4code-*.png, icons/)
+   EN: The Cube4Code name and cube symbol belong to Roberto Ritter (Cube4Code) and are not
+   covered by the MIT License of the code.
+   PT: O nome Cube4Code e o símbolo do cubo pertencem a Roberto Ritter (Cube4Code) e não
+   estão cobertos pela licença MIT do código.

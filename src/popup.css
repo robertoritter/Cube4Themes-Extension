@@ -1,0 +1,51 @@
+/* O próprio popup usa o tema escolhido (ou Tokyo Night) através das variáveis --c4-*. */
+:root { color-scheme: dark; }
+body:not(.on-dark) { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0; width: 320px;
+  font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--c4-bg, #1a1b26); color: var(--c4-text, #c0caf5);
+}
+header { padding: 12px 14px 8px; border-bottom: 1px solid var(--c4-line, #333); }
+/* Marca Cube4Code (docs/standards/BRAND.md). Manrope vai junto com a extensão, sem Google Fonts.
+   As cores seguem o fundo do popup: body.on-dark quando o tema do popup é escuro. */
+@font-face { font-family: Manrope; src: url("brand/manrope-latin.woff2") format("woff2"); font-weight: 200 800; font-display: block; }
+.brand { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.symbol { display: block; width: 30px; height: auto; }
+.brand-name { font: 700 17px/1.05 Manrope, system-ui, sans-serif; letter-spacing: -0.035em; color: #0B2033; }
+.brand-name .four { font-weight: 800; font-size: 1.1em; color: #8523D1; }
+.sig { display: inline-block; margin-top: 2px; font: 500 9.5px/1.2 Manrope, system-ui, sans-serif; color: #667085; text-decoration: none; }
+.sig span { color: #8523D1; font-weight: 700; }
+.sig:hover { text-decoration: underline; }
+body.on-dark .brand-name { color: #F4F6FA; }
+body.on-dark .brand-name .four, body.on-dark .sig span { color: #A889FF; }
+body.on-dark .sig { color: #98A2B3; }
+.host { color: var(--c4-muted, #888); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.scope { display: flex; gap: 14px; padding: 8px 14px; }
+.scope label { cursor: pointer; }
+.scope input { accent-color: var(--c4-accent, #7aa2f7); }
+.actions { display: flex; gap: 8px; padding: 0 14px 8px; }
+button {
+  flex: 1; padding: 5px 8px; cursor: pointer; font: inherit;
+  background: var(--c4-surface, #222); color: var(--c4-text, #ddd);
+  border: 1px solid var(--c4-line2, #444); border-radius: 6px;
+}
+button:hover { background: var(--c4-hover, #2a2a2a); }
+button:disabled { opacity: .45; cursor: default; }
+.status { padding: 0 14px 6px; color: var(--c4-muted, #888); font-size: 12px; min-height: 1em; }
+h2 { margin: 8px 14px 4px; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--c4-h2, #7aa2f7); }
+.list { list-style: none; margin: 0; padding: 0 6px 6px; }
+.list li {
+  display: flex; align-items: center; gap: 8px; padding: 5px 8px; border-radius: 6px; cursor: pointer;
+}
+.list li:hover { background: var(--c4-hover, #2a2a2a); }
+.list li.active { background: var(--c4-accent-soft, #2a3350); outline: 1px solid var(--c4-accent, #7aa2f7); }
+.list li .name { flex: 1; }
+.sw { display: flex; border-radius: 4px; overflow: hidden; border: 1px solid var(--c4-line2, #444); }
+.sw span { width: 9px; height: 16px; }
+footer { padding: 8px 14px 12px; font-size: 11px; color: var(--c4-muted, #888); border-top: 1px solid var(--c4-line, #333); }
+footer a { color: var(--c4-link, #7dcfff); }
+
+/* Topo fixo: cabeçalho, escopo e botões ficam visíveis enquanto a lista rola. */
+.top { position: sticky; top: 0; z-index: 1; background: var(--c4-bg, #1a1b26); border-bottom: 1px solid var(--c4-line, #333); }

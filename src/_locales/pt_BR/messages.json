@@ -1,0 +1,83 @@
+{
+  "extName": {
+    "message": "Cube4Themes",
+    "description": "Nome da extensão."
+  },
+  "extDescription": {
+    "message": "Aplica 53 temas de cores de terminal em qualquer site, com contraste garantido. Escolha um tema por site ou para todos.",
+    "description": "Descrição mostrada no navegador e nas lojas (limite do Chrome: 132 caracteres)."
+  },
+  "actionTitle": {
+    "message": "Cube4Themes: escolha um tema",
+    "description": "Dica do botão na barra de ferramentas."
+  },
+  "scopeSite": {
+    "message": "Só este site"
+  },
+  "scopeAll": {
+    "message": "Todos os sites"
+  },
+  "scopeLabel": {
+    "message": "Onde aplicar"
+  },
+  "noTheme": {
+    "message": "Sem tema"
+  },
+  "useDefault": {
+    "message": "Usar o padrão"
+  },
+  "useDefaultTitle": {
+    "message": "Remove a escolha deste site e volta para o tema de todos os sites"
+  },
+  "dark": {
+    "message": "Escuros"
+  },
+  "light": {
+    "message": "Claros"
+  },
+  "footer": {
+    "message": "Temas de terminal de seus autores originais."
+  },
+  "credits": {
+    "message": "Créditos"
+  },
+  "licenses": {
+    "message": "Licenças"
+  },
+  "browserPage": {
+    "message": "página do navegador"
+  },
+  "statusUnavailable": {
+    "message": "Esta página não aceita temas. Valendo para todos: $THEME$.",
+    "placeholders": {
+      "theme": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusOff": {
+    "message": "Desligado neste site."
+  },
+  "statusSite": {
+    "message": "Este site usa $THEME$.",
+    "placeholders": {
+      "theme": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusDefault": {
+    "message": "Este site segue o padrão: $THEME$.",
+    "placeholders": {
+      "theme": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusNone": {
+    "message": "Nenhum tema ativo."
+  },
+  "none": {
+    "message": "nenhum"
+  }
+}

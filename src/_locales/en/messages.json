@@ -1,0 +1,83 @@
+{
+  "extName": {
+    "message": "Cube4Themes",
+    "description": "Extension name."
+  },
+  "extDescription": {
+    "message": "Apply 53 terminal color themes to any website, with guaranteed contrast. Pick a theme per site or for all sites.",
+    "description": "Extension description shown in the browser and in the stores (Chrome limit: 132 characters)."
+  },
+  "actionTitle": {
+    "message": "Cube4Themes: choose a theme",
+    "description": "Tooltip of the toolbar button."
+  },
+  "scopeSite": {
+    "message": "This site only"
+  },
+  "scopeAll": {
+    "message": "All sites"
+  },
+  "scopeLabel": {
+    "message": "Where to apply"
+  },
+  "noTheme": {
+    "message": "No theme"
+  },
+  "useDefault": {
+    "message": "Use default"
+  },
+  "useDefaultTitle": {
+    "message": "Remove this site's choice and follow the theme for all sites"
+  },
+  "dark": {
+    "message": "Dark"
+  },
+  "light": {
+    "message": "Light"
+  },
+  "footer": {
+    "message": "Terminal color schemes belong to their original authors."
+  },
+  "credits": {
+    "message": "Credits"
+  },
+  "licenses": {
+    "message": "Licenses"
+  },
+  "browserPage": {
+    "message": "browser page"
+  },
+  "statusUnavailable": {
+    "message": "This page does not accept themes. All sites: $THEME$.",
+    "placeholders": {
+      "theme": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusOff": {
+    "message": "Turned off on this site."
+  },
+  "statusSite": {
+    "message": "This site uses $THEME$.",
+    "placeholders": {
+      "theme": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusDefault": {
+    "message": "This site follows the default: $THEME$.",
+    "placeholders": {
+      "theme": {
+        "content": "$1"
+      }
+    }
+  },
+  "statusNone": {
+    "message": "No theme active."
+  },
+  "none": {
+    "message": "none"
+  }
+}

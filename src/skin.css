@@ -1,0 +1,109 @@
+/*
+ * Cube4Themes Extension: pele genérica.
+ * Liga elementos comuns de qualquer site às variáveis --c4-* do tema ativo.
+ * Tudo fica preso a html[data-c4-theme], então sem tema escolhido nada muda.
+ * Imagens, vídeos, canvas e SVG não são tocados.
+ */
+
+/*
+ * Tudo fica dentro de @layer: num conflito entre declarações !important, a que está em layer
+ * vence a que está fora, independente da especificidade. Assim um site com
+ * "#page-content { background: #fff !important }" (caso do Ludopedia) não segura mais o fundo branco.
+ */
+@layer c4skin {
+
+  html[data-c4-theme],
+  html[data-c4-theme] body {
+    background-color: var(--c4-bg) !important;
+    color: var(--c4-text) !important;
+  }
+
+  /*
+   * Qualquer elemento da página (inclusive os criados pelo próprio site, como <ytd-app> no YouTube),
+   * menos mídia e controles de formulário: fundo transparente para o fundo do tema aparecer,
+   * texto e bordas do tema. O :where() zera a especificidade, então as regras abaixo (títulos,
+   * links, código...) sempre vencem esta.
+   * [data-c4-probe] fica de fora porque o content.js usa esse atributo por um instante para ler
+   * o fundo original de elementos fixos.
+   */
+  html[data-c4-theme] :where(body *:not(img, video, canvas, svg, svg *, picture, iframe, embed, object, audio,
+    input, textarea, select, button, [data-c4-probe])) {
+    background-color: transparent !important;
+    color: inherit !important;
+    border-color: var(--c4-line) !important;
+  }
+
+  /*
+   * Elementos fixos ou grudados (cabeçalhos, barras, menus) que tinham fundo próprio.
+   * O content.js marca com data-c4-raised; sem isso o conteúdo apareceria por trás deles.
+   */
+  html[data-c4-theme] [data-c4-raised] {
+    background-color: var(--c4-bg) !important;
+  }
+
+  /* Elementos que costumam ficar acima do conteúdo (menus, cabeçalhos fixos, diálogos) precisam de fundo. */
+  html[data-c4-theme] :is(dialog, [role="dialog"], [role="menu"], [role="listbox"], [role="tooltip"]) {
+    background-color: var(--c4-surface) !important;
+    color: var(--c4-text) !important;
+    border-color: var(--c4-line2) !important;
+  }
+
+  /* Leitura: os papéis "text" do Cube4Themes. */
+  html[data-c4-theme] h1 { color: var(--c4-h1) !important; }
+  html[data-c4-theme] h2 { color: var(--c4-h2) !important; }
+  html[data-c4-theme] h3 { color: var(--c4-h3) !important; }
+  html[data-c4-theme] :is(h4, h5, h6) { color: var(--c4-h4) !important; }
+  html[data-c4-theme] :is(h1, h2, h3, h4, h5, h6) { background-color: transparent !important; }
+  html[data-c4-theme] :is(b, strong) { color: var(--c4-bold) !important; }
+  html[data-c4-theme] :is(i, em) { color: var(--c4-italic) !important; }
+  html[data-c4-theme] li::marker { color: var(--c4-bullet) !important; }
+  html[data-c4-theme] :is(a, a:visited) { color: var(--c4-link) !important; background-color: transparent !important; }
+  html[data-c4-theme] a :is(span, b, strong, i, em, h1, h2, h3, h4) { color: inherit !important; }
+  html[data-c4-theme] blockquote {
+    color: var(--c4-quote) !important;
+    background-color: transparent !important;
+    border-color: var(--c4-quote) !important;
+  }
+  html[data-c4-theme] :is(code, kbd, samp, tt) {
+    color: var(--c4-code) !important;
+    background-color: var(--c4-code-bg) !important;
+  }
+  html[data-c4-theme] pre,
+  html[data-c4-theme] pre * {
+    background-color: var(--c4-code-bg) !important;
+  }
+  html[data-c4-theme] pre { color: var(--c4-code) !important; border-color: var(--c4-line) !important; }
+  html[data-c4-theme] pre code { background-color: transparent !important; }
+  html[data-c4-theme] mark { background-color: var(--c4-warn-soft) !important; color: var(--c4-text) !important; }
+  html[data-c4-theme] :is(ins) { background-color: var(--c4-add-bg) !important; color: var(--c4-add-text) !important; }
+  html[data-c4-theme] :is(del, s) { background-color: var(--c4-del-bg) !important; color: var(--c4-del-text) !important; }
+  html[data-c4-theme] hr { border-color: var(--c4-line2) !important; background-color: var(--c4-line2) !important; }
+  html[data-c4-theme] th {
+    background-color: var(--c4-surface) !important;
+    color: var(--c4-text) !important;
+    border-color: var(--c4-line) !important;
+  }
+
+  /* Formulários. */
+  html[data-c4-theme] :is(input, textarea, select) {
+    background-color: var(--c4-surface) !important;
+    color: var(--c4-text) !important;
+    border-color: var(--c4-line2) !important;
+  }
+  html[data-c4-theme] :is(input, textarea)::placeholder { color: var(--c4-muted) !important; }
+  html[data-c4-theme] :is(button, input[type="button"], input[type="submit"], input[type="reset"]) {
+    background-color: var(--c4-surface) !important;
+    color: var(--c4-text) !important;
+    border-color: var(--c4-line2) !important;
+  }
+  html[data-c4-theme] :is(button, input[type="button"], input[type="submit"]):hover {
+    background-color: var(--c4-hover) !important;
+  }
+  html[data-c4-theme] :is(input[type="checkbox"], input[type="radio"], input[type="range"], progress) {
+    accent-color: var(--c4-accent) !important;
+  }
+
+  html[data-c4-theme] ::selection { background-color: var(--c4-selection) !important; color: var(--c4-text) !important; }
+  html[data-c4-theme] { scrollbar-color: var(--c4-line2) var(--c4-bg) !important; }
+
+}
