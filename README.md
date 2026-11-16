@@ -1,68 +1,60 @@
+**English** | [Português](README.pt-BR.md)
+
 ![Cube4Themes: 53 color themes for any website](store/images/promo-marquee-1400x560.png)
 
 # Cube4Themes Extension
 
-A browser extension for Chrome, Brave, Edge, Opera, Vivaldi and Firefox that applies the 53 themes of [Cube4Themes](https://github.com/robertoritter/Cube4Themes) to any website, for one site or for all of them. Many sites still have no dark mode; this one gives every page the colors you want to read in.
-
-Versão em português: [README.pt-BR.md](README.pt-BR.md).
+Many websites still have no dark mode, and the ones that do rarely match your taste. Cube4Themes applies a full color theme to any website, for one site or for all of them, so every page looks the way you want to read it. Works in Chrome, Brave, Edge, Opera, Vivaldi and Firefox.
 
 ![Original page and the same page with a Cube4Themes theme](store/images/screenshot-2-before-after-1280x800.png)
 
 ## Features
 
-- 53 dark and light themes adapted from well-known terminal color schemes, with WCAG contrast checked for every reading color.
-- Pick a theme for the current site only, or one theme for all sites. Turn it off on sites that already look good.
-- Changes apply instantly, without reloading the page.
-- Interface in English and Brazilian Portuguese, following the browser language.
-- No data collection: choices are stored locally in the browser, with no network requests, analytics or remote code. See [PRIVACY.md](PRIVACY.md).
+- **53 themes, dark and light**, adapted from well-known terminal color schemes such as Tokyo Night, Nord, Catppuccin and Solarized.
+- **Readable by design:** every text color is checked against the background for a minimum WCAG contrast.
+- **Per site or everywhere:** pick a theme for the current site only, or one theme for all sites. Turn it off where a site already looks good.
+- **Instant:** changes apply without reloading the page.
+- **English and Portuguese**, following your browser language.
 
 ## Install
 
-The extension is not in the Chrome Web Store or on addons.mozilla.org yet. Until then, build it and load it from source.
+Cube4Themes is on its way to the Chrome Web Store and to Firefox Add-ons. Until it is listed there, you can install it manually; see [Development](#development) for the steps.
 
-```bash
-node build.mjs                 # creates build/chrome and build/firefox (Node 18+, no dependencies)
-node build.mjs ../Cube4Themes  # optional: first refresh src/lib from a Cube4Themes clone
-```
+## Privacy
 
-**Chrome, Brave, Edge, Opera, Vivaldi**
-
-1. Open `chrome://extensions` (`brave://extensions`, `edge://extensions`...).
-2. Turn on **Developer mode**.
-3. Click **Load unpacked** and choose the `build/chrome` folder.
-4. Pin the toolbar button and open any website.
-
-**Firefox 140 or later**
-
-1. Open `about:debugging#/runtime/this-firefox`.
-2. Click **Load Temporary Add-on** and choose `build/firefox/manifest.json`.
-3. Firefox turns off site access for MV3 extensions by default: open `about:addons`, select Cube4Themes, go to **Permissions** and allow access to all sites.
-4. A temporary add-on is removed when Firefox closes.
-
-After changing the code, reload the extension and the tab.
-
-## How it works
-
-- `src/lib/themes.css` (from Cube4Themes) defines the `--c4-*` variables of each theme, scoped to `<html data-c4-theme="...">`.
-- `src/skin.css` maps any page element to those variables: background, text, headings, bold, links, code, quotes, tables and form fields. Images, video and SVG are left alone. The skin lives in a cascade layer (`@layer c4skin`), so its `!important` rules win over a site's own `!important` rules regardless of specificity.
-- `src/content.js` reads the saved choice and sets or removes the `data-c4-theme` attribute. Without it, the style sheets do nothing. It also marks fixed and sticky headers that had their own background, so content does not show through them.
-- `src/popup.*` lists the themes with color swatches and saves the choice in `storage.local`.
-
-The only permission is `storage`. There is no background script, so the same code runs in every browser; only the Firefox manifest adds an ID and its data collection declaration.
+Cube4Themes does not collect or send any data. Your theme choices stay in your browser. There are no network requests, no analytics and no remote code. Full policy: [PRIVACY.md](PRIVACY.md).
 
 ## Known limitations
 
-- Styles set with `!important` directly in an element's `style` attribute still win over the skin.
-- On sites with a very designed layout, cards and buttons built with `div` elements can lose their outline.
-- Dark icons (SVG, icon fonts or `mask-image`) can disappear on a dark theme.
-- Content inside Shadow DOM is not reached by page CSS.
-- Sites that are already dark get the theme on top; use "No theme" with "This site only" there.
-- The choice is read asynchronously, so a page can flash its original colors for a moment while loading.
+- Sites with a very designed layout can lose some outlines on cards and buttons.
+- Dark icons can be hard to see on a dark theme.
+- Sites that are already dark get the theme on top; use **No theme** with **This site only** there.
+- A page can show its original colors for a moment while loading.
 - Tabs opened before installing the extension need a reload.
 
-## Store listing
+Found a site that looks wrong? [Open an issue](https://github.com/robertoritter/Cube4Themes-Extension/issues) with its address.
 
-`store/` holds the store material: 1280x800 screenshots, the store icon, promotional images and [STORE_LISTING.md](store/STORE_LISTING.md) with the form texts in English and Portuguese. To build the upload packages, run `node build.mjs` and zip the contents of `build/chrome` and `build/firefox` (with `manifest.json` at the root of each zip).
+## Development
+
+The extension is plain JavaScript and CSS (Manifest V3), with no dependencies and no bundler. Node 18 or later is only needed for the build script.
+
+```bash
+node build.mjs                 # creates build/chrome and build/firefox
+node build.mjs ../Cube4Themes  # optional: first refresh src/lib from a Cube4Themes clone
+```
+
+**Load in Chrome, Brave, Edge, Opera or Vivaldi:** open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked** and choose `build/chrome`.
+
+**Load in Firefox 140 or later:** open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on** and choose `build/firefox/manifest.json`. Then, in `about:addons`, open Cube4Themes, go to **Permissions** and allow access to all sites. A temporary add-on is removed when Firefox closes.
+
+**How it works**
+
+- `src/lib/themes.css` (from [Cube4Themes](https://github.com/robertoritter/Cube4Themes)) defines the `--c4-*` variables of each theme, scoped to `<html data-c4-theme="...">`.
+- `src/skin.css` maps any page element to those variables, leaving images, video and SVG alone. It lives in a cascade layer (`@layer c4skin`), so its `!important` rules win over a site's own `!important` rules regardless of specificity.
+- `src/content.js` sets or removes `data-c4-theme` from the saved choice, and marks fixed and sticky headers that had their own background so content does not show through them.
+- `src/popup.*` lists the themes and saves the choice in `storage.local`. The only permission is `storage`, and there is no background script.
+
+**Store material:** `store/` holds the screenshots, promotional images and [STORE_LISTING.md](store/STORE_LISTING.md) with the store form texts. Upload packages are the contents of `build/chrome` and `build/firefox`, zipped with `manifest.json` at the root.
 
 ## Credits and license
 
