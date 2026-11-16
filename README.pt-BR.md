@@ -18,7 +18,15 @@ Muitos sites ainda não têm modo escuro, e os que têm raramente combinam com o
 
 ## Instalar
 
-O Cube4Themes está a caminho da Chrome Web Store e da loja de complementos do Firefox. Enquanto não aparece lá, dá para instalar manualmente; os passos estão em [Desenvolvimento](#desenvolvimento).
+- **Chrome, Brave, Edge, Opera, Vivaldi:** [Cube4Themes na Chrome Web Store](https://chromewebstore.google.com/search/Cube4Themes), depois **Usar no Chrome**.
+- **Firefox:** [Cube4Themes nos complementos do Firefox](https://addons.mozilla.org/pt-BR/firefox/addon/cube4themes/), depois **Adicionar ao Firefox**.
+
+## Como usar
+
+1. Fixe o botão do Cube4Themes na barra de ferramentas.
+2. Abra qualquer site e clique no botão.
+3. Escolha **Só este site** ou **Todos os sites** e clique num tema. A página muda na hora.
+4. **Sem tema** desliga; **Usar o padrão** faz o site voltar a seguir o tema de todos os sites.
 
 ## Privacidade
 
@@ -43,9 +51,9 @@ node build.mjs                 # gera build/chrome e build/firefox
 node build.mjs ../Cube4Themes  # opcional: antes atualiza src/lib a partir de um clone do Cube4Themes
 ```
 
-**Carregar no Chrome, Brave, Edge, Opera ou Vivaldi:** abra `chrome://extensions`, ligue o **Modo do desenvolvedor**, clique em **Carregar sem compactação** e escolha `build/chrome`.
+**Instalar a partir do código no Chrome, Brave, Edge, Opera ou Vivaldi:** abra `chrome://extensions`, ligue o **Modo do desenvolvedor**, clique em **Carregar sem compactação** e escolha `build/chrome`.
 
-**Carregar no Firefox 140 ou mais novo:** abra `about:debugging#/runtime/this-firefox`, clique em **Carregar extensão temporária** e escolha `build/firefox/manifest.json`. Depois, em `about:addons`, abra a Cube4Themes, aba **Permissões**, e libere o acesso a todos os sites. A extensão temporária some quando o Firefox fecha.
+**Instalar a partir do código no Firefox 140 ou mais novo:** abra `about:debugging#/runtime/this-firefox`, clique em **Carregar extensão temporária** e escolha `build/firefox/manifest.json`. Depois, em `about:addons`, abra a Cube4Themes, aba **Permissões**, e libere o acesso a todos os sites. A extensão temporária some quando o Firefox fecha.
 
 **Como funciona**
 

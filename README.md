@@ -18,7 +18,15 @@ Many websites still have no dark mode, and the ones that do rarely match your ta
 
 ## Install
 
-Cube4Themes is on its way to the Chrome Web Store and to Firefox Add-ons. Until it is listed there, you can install it manually; see [Development](#development) for the steps.
+- **Chrome, Brave, Edge, Opera, Vivaldi:** [Cube4Themes on the Chrome Web Store](https://chromewebstore.google.com/search/Cube4Themes), then **Add to Chrome**.
+- **Firefox:** [Cube4Themes on Firefox Add-ons](https://addons.mozilla.org/firefox/addon/cube4themes/), then **Add to Firefox**.
+
+## How to use
+
+1. Pin the Cube4Themes button to the toolbar.
+2. Open any website and click the button.
+3. Choose **This site only** or **All sites**, then click a theme. The page changes right away.
+4. **No theme** turns it off; **Use default** makes a site follow your theme for all sites again.
 
 ## Privacy
 
@@ -43,9 +51,9 @@ node build.mjs                 # creates build/chrome and build/firefox
 node build.mjs ../Cube4Themes  # optional: first refresh src/lib from a Cube4Themes clone
 ```
 
-**Load in Chrome, Brave, Edge, Opera or Vivaldi:** open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked** and choose `build/chrome`.
+**Install from source in Chrome, Brave, Edge, Opera or Vivaldi:** open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked** and choose `build/chrome`.
 
-**Load in Firefox 140 or later:** open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on** and choose `build/firefox/manifest.json`. Then, in `about:addons`, open Cube4Themes, go to **Permissions** and allow access to all sites. A temporary add-on is removed when Firefox closes.
+**Install from source in Firefox 140 or later:** open `about:debugging#/runtime/this-firefox`, click **Load Temporary Add-on** and choose `build/firefox/manifest.json`. Then, in `about:addons`, open Cube4Themes, go to **Permissions** and allow access to all sites. A temporary add-on is removed when Firefox closes.
 
 **How it works**
 
