@@ -2,66 +2,70 @@
 
 # Cube4Themes Extension
 
-Extensão para Chrome, Brave, Edge e Firefox que aplica os temas do [Cube4Themes](https://github.com/robertoritter/Cube4Themes) em qualquer site. A escolha pode valer só para o site atual ou para todos.
+A browser extension for Chrome, Brave, Edge, Opera, Vivaldi and Firefox that applies the 53 themes of [Cube4Themes](https://github.com/robertoritter/Cube4Themes) to any website, for one site or for all of them. Many sites still have no dark mode; this one gives every page the colors you want to read in.
 
-## Como funciona
+Versão em português: [README.pt-BR.md](README.pt-BR.md).
 
-- `src/lib/themes.css` (do Cube4Themes) define as variáveis `--c4-*` de cada tema, presas a `<html data-c4-theme="...">`.
-- `src/skin.css` liga os elementos comuns de qualquer site a essas variáveis (fundo, texto, títulos, negrito, links, código, citações, tabelas, formulários). Imagens, vídeos e SVG não são tocados.
-- `src/content.js` lê a escolha salva e coloca ou tira o atributo `data-c4-theme`. Sem o atributo, os dois CSS não fazem nada. Ele também marca cabeçalhos e barras fixas (`position: fixed/sticky`) que tinham fundo próprio, para não ficarem transparentes com o conteúdo passando por trás.
-- `src/popup.*` lista os 53 temas (escuros e claros, com amostras de cor) e grava a escolha em `storage.local` (nada sai do navegador; veja `PRIVACY.md`). A aba muda na hora.
+![Original page and the same page with a Cube4Themes theme](store/images/screenshot-2-before-after-1280x800.png)
 
-O nome, a descrição e a dica do botão ficam em `src/_locales/en` e `src/_locales/pt_BR`. O navegador escolhe pelo idioma dele, e inglês é o padrão para os outros idiomas.
+## Features
 
-A única permissão pedida é `storage`. Não há background script, então o mesmo código serve para todos os navegadores; só o manifest do Firefox ganha um ID.
+- 53 dark and light themes adapted from well-known terminal color schemes, with WCAG contrast checked for every reading color.
+- Pick a theme for the current site only, or one theme for all sites. Turn it off on sites that already look good.
+- Changes apply instantly, without reloading the page.
+- Interface in English and Brazilian Portuguese, following the browser language.
+- No data collection: choices are stored locally in the browser, with no network requests, analytics or remote code. See [PRIVACY.md](PRIVACY.md).
 
-## Montar
+## Install
+
+The extension is not in the Chrome Web Store or on addons.mozilla.org yet. Until then, build it and load it from source.
 
 ```bash
-node build.mjs                 # gera build/chrome e build/firefox
-node build.mjs ../Cube4Themes  # opcional: antes atualiza src/lib a partir do seu clone do Cube4Themes
+node build.mjs                 # creates build/chrome and build/firefox (Node 18+, no dependencies)
+node build.mjs ../Cube4Themes  # optional: first refresh src/lib from a Cube4Themes clone
 ```
 
-## Carregar
+**Chrome, Brave, Edge, Opera, Vivaldi**
 
-**Chrome / Brave / Edge**
+1. Open `chrome://extensions` (`brave://extensions`, `edge://extensions`...).
+2. Turn on **Developer mode**.
+3. Click **Load unpacked** and choose the `build/chrome` folder.
+4. Pin the toolbar button and open any website.
 
-1. Abra `chrome://extensions` (no Brave, `brave://extensions`; no Edge, `edge://extensions`).
-2. Ligue o **Modo do desenvolvedor**.
-3. **Carregar sem compactação** e escolha a pasta `build/chrome`.
-4. Fixe o ícone na barra e abra qualquer site.
+**Firefox 140 or later**
 
-**Firefox**
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Click **Load Temporary Add-on** and choose `build/firefox/manifest.json`.
+3. Firefox turns off site access for MV3 extensions by default: open `about:addons`, select Cube4Themes, go to **Permissions** and allow access to all sites.
+4. A temporary add-on is removed when Firefox closes.
 
-1. Abra `about:debugging#/runtime/this-firefox`.
-2. **Carregar extensão temporária** e escolha o arquivo `build/firefox/manifest.json`.
-3. No Firefox, a permissão de acesso aos sites vem desligada em extensões MV3. Abra `about:addons`, entre na Cube4Themes, aba **Permissões**, e ligue o acesso a todos os sites.
-4. A extensão temporária some quando o Firefox fecha. Para ficar permanente, ela precisa ser assinada pela Mozilla (gratuito, pode ser como "não listada").
+After changing the code, reload the extension and the tab.
 
-Depois de alterar o código, use o botão de recarregar da extensão e recarregue a aba.
+## How it works
 
-## Limites conhecidos deste modelo
+- `src/lib/themes.css` (from Cube4Themes) defines the `--c4-*` variables of each theme, scoped to `<html data-c4-theme="...">`.
+- `src/skin.css` maps any page element to those variables: background, text, headings, bold, links, code, quotes, tables and form fields. Images, video and SVG are left alone. The skin lives in a cascade layer (`@layer c4skin`), so its `!important` rules win over a site's own `!important` rules regardless of specificity.
+- `src/content.js` reads the saved choice and sets or removes the `data-c4-theme` attribute. Without it, the style sheets do nothing. It also marks fixed and sticky headers that had their own background, so content does not show through them.
+- `src/popup.*` lists the themes with color swatches and saves the choice in `storage.local`.
 
-- Sites que usam `!important` com seletores fortes são cobertos porque a pele fica dentro de `@layer`. Só estilos `!important` escritos direto no atributo `style` do elemento ainda vencem.
-- A pele cobre qualquer elemento, inclusive os criados pelo próprio site (como `<ytd-app>` no YouTube), e deixa os fundos transparentes para o fundo do tema aparecer. Em sites com layout muito desenhado, cartões e botões feitos com `div` podem perder o contorno.
-- Ícones em SVG ou fontes de ícone escuros podem sumir num tema escuro. Ícones feitos com `mask-image` e cor de fundo também somem.
-- Conteúdo dentro de Shadow DOM não é alcançado pelo CSS da página.
-- Sites que já são escuros recebem o tema por cima. Use "Sem tema" com "Só este site" para desligar neles.
-- A escolha é lida de forma assíncrona, então um site pode piscar com as cores originais por um instante ao carregar.
-- Abas abertas antes de instalar a extensão precisam ser recarregadas.
+The only permission is `storage`. There is no background script, so the same code runs in every browser; only the Firefox manifest adds an ID and its data collection declaration.
 
-## Próximos passos possíveis
+## Known limitations
 
-- Peles por site (`skins/<dominio>.css`) para os sites mais usados.
-- Detectar se o site já é escuro e não aplicar sozinho.
-- Remapear as cores originais do site para a paleta do tema (abordagem do Dark Reader), usando `mix`, `contrast` e `legible` do Cube4Themes.
+- Styles set with `!important` directly in an element's `style` attribute still win over the skin.
+- On sites with a very designed layout, cards and buttons built with `div` elements can lose their outline.
+- Dark icons (SVG, icon fonts or `mask-image`) can disappear on a dark theme.
+- Content inside Shadow DOM is not reached by page CSS.
+- Sites that are already dark get the theme on top; use "No theme" with "This site only" there.
+- The choice is read asynchronously, so a page can flash its original colors for a moment while loading.
+- Tabs opened before installing the extension need a reload.
 
-## Créditos e licença
+## Store listing
 
-Cada esquema de cores pertence ao seu autor original; veja os créditos no [Cube4Themes](https://github.com/robertoritter/Cube4Themes#credits). A extensão é MIT (`LICENSE`). O Cube4Themes e as quatro coleções de paletas (iTerm2-Color-Schemes, Gogh, lucario, vim-deus) também são MIT; os textos completos estão em `src/licenses/` e o resumo em `src/THIRD_PARTY_NOTICES.txt`, que acompanha o pacote e abre pelo link "Licenças" no popup.
+`store/` holds the store material: 1280x800 screenshots, the store icon, promotional images and [STORE_LISTING.md](store/STORE_LISTING.md) with the form texts in English and Portuguese. To build the upload packages, run `node build.mjs` and zip the contents of `build/chrome` and `build/firefox` (with `manifest.json` at the root of each zip).
 
-Desenvolvido por **Roberto Ritter** na [Cube4Code](https://cube4code.com).
+## Credits and license
 
-## Publicação
+The extension code is released under the [MIT License](LICENSE). Each color scheme belongs to its original author; see the credits in [Cube4Themes](https://github.com/robertoritter/Cube4Themes#credits). Cube4Themes and the four palette collections (iTerm2-Color-Schemes, Gogh, lucario, vim-deus) are MIT licensed, and the Manrope font is under the SIL Open Font License 1.1. Full texts are in `src/licenses/` and a summary in `src/THIRD_PARTY_NOTICES.txt`. The Cube4Code name and symbol are not covered by the MIT License.
 
-A pasta `store/` tem o pacote de envio: os zips de cada loja, as imagens (screenshots 1280x800, ícone 128 e imagens promocionais) e `STORE_LISTING.md` com todos os textos dos formulários em inglês e português. Para refazer os zips depois de mudar o código, rode `node build.mjs` e compacte o conteúdo de `build/chrome` e `build/firefox` (o `manifest.json` precisa ficar na raiz do zip).
+Developed by **Roberto RITTER** at [Cube4Code](https://cube4code.com).
