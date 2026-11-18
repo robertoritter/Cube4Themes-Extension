@@ -27,7 +27,7 @@ Many websites still have no dark mode, and the ones that do rarely match your ta
 
 ## Install
 
-- **Chrome, Brave, Edge, Opera, Vivaldi:** [Cube4Themes on the Chrome Web Store](https://chromewebstore.google.com/search/Cube4Themes), then **Add to Chrome**.
+- **Chrome, Brave, Edge, Opera, Vivaldi:** [Cube4Themes on the Chrome Web Store](https://chromewebstore.google.com/detail/cube4themes/pfacnkkkkbhommpjggnianhfpjncofhk), then **Add to Chrome**.
 - **Firefox:** [Cube4Themes on Firefox Add-ons](https://addons.mozilla.org/firefox/addon/cube4themes/), then **Add to Firefox**.
 
 ## How to use

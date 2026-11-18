@@ -27,7 +27,7 @@ Muitos sites ainda não têm modo escuro, e os que têm raramente combinam com o
 
 ## Instalar
 
-- **Chrome, Brave, Edge, Opera, Vivaldi:** [Cube4Themes na Chrome Web Store](https://chromewebstore.google.com/search/Cube4Themes), depois **Usar no Chrome**.
+- **Chrome, Brave, Edge, Opera, Vivaldi:** [Cube4Themes na Chrome Web Store](https://chromewebstore.google.com/detail/cube4themes/pfacnkkkkbhommpjggnianhfpjncofhk), depois **Usar no Chrome**.
 - **Firefox:** [Cube4Themes nos complementos do Firefox](https://addons.mozilla.org/pt-BR/firefox/addon/cube4themes/), depois **Adicionar ao Firefox**.
 
 ## Como usar
